@@ -30,3 +30,5 @@ https://electricballroom.co.uk/whats-on/
 https://earthackney.co.uk/events/
 https://scala.co.uk/all-event-list/
 https://islingtonassemblyhall.co.uk/events/
+
+grid, list tag,
