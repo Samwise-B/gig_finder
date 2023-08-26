@@ -1,0 +1,32 @@
+API
+https://skyway.roundhouse.org.uk/graphql?operationName=getSeries&variables=%7B%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22ae99d84dd7a504d088e44996ad41adcd235a8f6d8f0a67c5aad3907cedc2ce04%22%7D%7D
+https://www.koko.co.uk/_next/data/jljvjp6R1kfRHQYKecxtE/whats-on.json
+
+https://www.southbankcentre.co.uk/api/function/whatsOnList (POST)
+[
+  {
+    "from": 0,
+    "size": 50,
+    "hasMemberPresale": false,
+    "groupArrangements": true,
+    "primaryWhatsOnList": true,
+    "whileYourAreHereList": false,
+    "multiBuy": false,
+    "eventTypes": [
+      {
+        "type": "artform",
+        "value": "Gigs"
+      }
+    ],
+    "preFilterByTagsOrVenue": false
+  }
+]
+
+PAGE
+https://www.academymusicgroup.com/o2forumkentishtown/events/all
+https://www.academymusicgroup.com/o2shepherdsbushempire/
+https://www.academymusicgroup.com/o2academybrixton/
+https://electricballroom.co.uk/whats-on/
+https://earthackney.co.uk/events/
+https://scala.co.uk/all-event-list/
+https://islingtonassemblyhall.co.uk/events/
