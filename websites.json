@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "o2forumkentishtown",
+        "base-url": "https://www.academymusicgroup.com",
+        "events-url": "https://www.academymusicgroup.com/o2forumkentishtown/events/all",
+        "relative": "True",
+        "type": "html",
+        "cookies": "None",
+        "htmlTags": {
+            "getLinks": ["class", "btn sml white more mb1 right"],
+            "artist": ["class", "col col-12 mt0 mb1"],
+            "time": ["class", "event-info", "tag", "p"],
+            "date": ["class", "event-info", "tag", "p"],
+            "status": ["class", "ticket-status"]
+            }
+    },
+    {
+        "id": 2,
+        "name": "jazz cafe",
+        "base-url": "https://thejazzcafelondon.com/",
+        "events-url": "https://thejazzcafelondon.com/whats-on/#any",
+        "relative": "False",
+        "type": "html",
+        "cookies": ["True", "**/?accept=true", "PHPSESSID=None; pys_session_limit=true; pys_start_session=true; pys_first_visit=true; pysTrafficSource=direct; pys_landing_page=https://thejazzcafelondon.com/whats-on/; last_pysTrafficSource=direct; last_pys_landing_page=https://thejazzcafelondon.com/whats-on/; _fbp=fb.1.1693309486578.4061707398; complianceCookie=true; gaconsent=true"],
+        "htmlTags": {
+            "getLinks": ["title", "Tickets and Info"],
+            "artist": ["tag", "h1"],
+            "time": ["class", "time"],
+            "date": ["class", "date"],
+            "status": ["title", "Buy tickets"]
+        }
+    }
+]
