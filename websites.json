@@ -4,9 +4,11 @@
         "name": "o2forumkentishtown",
         "base-url": "https://www.academymusicgroup.com",
         "events-url": "https://www.academymusicgroup.com/o2forumkentishtown/events/all",
-        "relative": "True",
+        "dynamic": false,
+        "relative": true,
         "type": "html",
-        "cookies": "None",
+        "cookiesRequired": false,
+        "cookies": null,
         "htmlTags": {
             "getLinks": ["class", "btn sml white more mb1 right"],
             "artist": ["class", "col col-12 mt0 mb1"],
@@ -20,15 +22,90 @@
         "name": "jazz cafe",
         "base-url": "https://thejazzcafelondon.com/",
         "events-url": "https://thejazzcafelondon.com/whats-on/#any",
-        "relative": "False",
+        "dynamic": false,
+        "relative": false,
         "type": "html",
-        "cookies": ["True", "**/?accept=true", "PHPSESSID=None; pys_session_limit=true; pys_start_session=true; pys_first_visit=true; pysTrafficSource=direct; pys_landing_page=https://thejazzcafelondon.com/whats-on/; last_pysTrafficSource=direct; last_pys_landing_page=https://thejazzcafelondon.com/whats-on/; _fbp=fb.1.1693309486578.4061707398; complianceCookie=true; gaconsent=true"],
+        "cookiesRequired": true,
+        "cookies": ["**/?accept=true", 1, "Accept All Cookies", "PHPSESSID=None; pys_session_limit=true; pys_start_session=true; pys_first_visit=true; pysTrafficSource=direct; pys_landing_page=https://thejazzcafelondon.com/whats-on/; last_pysTrafficSource=direct; last_pys_landing_page=https://thejazzcafelondon.com/whats-on/; _fbp=fb.1.1693309486578.4061707398; complianceCookie=true; gaconsent=true"],
         "htmlTags": {
             "getLinks": ["title", "Tickets and Info"],
             "artist": ["tag", "h1"],
             "time": ["class", "time"],
             "date": ["class", "date"],
             "status": ["title", "Buy tickets"]
+        }
+    },
+    {
+        "id": 3,
+        "name": "KOKO",
+        "base-url": "https://www.koko.co.uk/",
+        "events-url": "https://www.koko.co.uk/whats-on",
+        "api-url": "https://www.koko.co.uk/_next/data/",
+        "dynamic": true,
+        "type": "api",
+        "filename": "whats-on.json",
+        "cookiesRequired": false,
+        "cookies": null,
+        "event-list": ["pageProps", "data", "allEvents"],
+        "data": {
+            "artist": ["event_title"],
+            "date": ["event_date", "milliseconds"],
+            "genres": [["event_data", "string-to-json", "categories", 0, "name"], ["event_data", "string-to-json", "categories", 0, "childCategories", 0, "name"]],
+            "status": ["event_data", "string-to-json", "totalTickets"],
+            "link": ["external_link"]
+        }
+    },
+    {
+        "id": 4,
+        "name": "Round House",
+        "base-url": "https://www.roundhouse.org.uk",
+        "events-url": "https://www.roundhouse.org.uk/whats-on",
+        "dynamic": true,
+        "relative": true,
+        "type": "html",
+        "cookiesRequired": false,
+        "cookies": null,
+        "getLinks": ["class", "event-card"],
+        "htmlTags": {
+            "artist": ["class", "h2 hero-content__heading hero-content__heading-image"],
+            "time": ["class", "booking-button__time text text--small"],
+            "date": ["class", "booking-button__date text text--small"],
+            "price": ["class", "booking-button__price text text--small text--semi-bold"],
+            "link": ["class", "booking-button"]
+            }
+    },
+    {
+        "id": 5,
+        "name": "Southbank Centre",
+        "base-url": "https://www.southbankcentre.co.uk",
+        "events-url": "https://www.southbankcentre.co.uk/whats-on?type=gigs",
+        "api-url": "https://www.southbankcentre.co.uk/api/function/whatsOnList",
+        "dynamic": false,
+        "relative": false,
+        "type": "api",
+        "method": "POST",
+        "body-type": "JSON",
+        "body": [{
+            "from": 0,
+            "size": 400,
+            "hasMemberPresale": false,
+            "groupArrangements": true,
+            "primaryWhatsOnList": true,
+            "whileYourAreHereList": false,
+            "multiBuy": false,
+            "eventTypes": [],
+            "preFilterByTagsOrVenue": false
+        }],
+        "cookiesRequired": false,
+        "cookies": null,
+        "condition": true,
+        "event-type": [["_source", "arrangementCMS", "primaryArtform"], "Gigs"], 
+        "event-list": ["hits", "hits"],
+        "data": {
+            "artist": ["_source", "arrangementCMS", "title"],
+            "date": ["_source", "eventCMS", "startTime"],
+            "price": ["_source", "performanceCMS", "basePriceByZone"],
+            "status": ["_source", "arrangementCMS", "ticketed"]
         }
     }
 ]
