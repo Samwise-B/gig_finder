@@ -9,11 +9,13 @@
         "type": "html",
         "cookiesRequired": false,
         "cookies": null,
+        "getLinks": ["class", "btn sml white more mb1 right"],
+        "date-format": "%A %d %B %Y - %I.%M%p",
         "htmlTags": {
-            "getLinks": ["class", "btn sml white more mb1 right"],
             "artist": ["class", "col col-12 mt0 mb1"],
-            "time": ["class", "event-info", "tag", "p"],
-            "date": ["class", "event-info", "tag", "p"],
+            "datetime": ["class", "event-info", "tag", "p"],
+            "price": null,
+            "genres": null,
             "status": ["class", "ticket-status"]
             }
     },
@@ -27,11 +29,15 @@
         "type": "html",
         "cookiesRequired": true,
         "cookies": ["**/?accept=true", 1, "Accept All Cookies", "PHPSESSID=None; pys_session_limit=true; pys_start_session=true; pys_first_visit=true; pysTrafficSource=direct; pys_landing_page=https://thejazzcafelondon.com/whats-on/; last_pysTrafficSource=direct; last_pys_landing_page=https://thejazzcafelondon.com/whats-on/; _fbp=fb.1.1693309486578.4061707398; complianceCookie=true; gaconsent=true"],
+        "getLinks": ["title", "Tickets and Info"],
+        "date-format": "%A %d %B",
+        "time-format": "%I%p",
         "htmlTags": {
-            "getLinks": ["title", "Tickets and Info"],
             "artist": ["tag", "h1"],
-            "time": ["class", "time"],
+            "time": ["class", " time"],
             "date": ["class", "date"],
+            "price": null,
+            "genres": null,
             "status": ["title", "Buy tickets"]
         }
     },
@@ -42,16 +48,21 @@
         "events-url": "https://www.koko.co.uk/whats-on",
         "api-url": "https://www.koko.co.uk/_next/data/",
         "dynamic": true,
+        "relative": false,
         "type": "api",
+        "method": "GET",
         "filename": "whats-on.json",
         "cookiesRequired": false,
         "cookies": null,
+        "condition": false,
         "event-list": ["pageProps", "data", "allEvents"],
+        "date-format": null,
         "data": {
             "artist": ["event_title"],
-            "date": ["event_date", "milliseconds"],
+            "datetime": ["event_date", "milliseconds"],
+            "price": null,
             "genres": [["event_data", "string-to-json", "categories", 0, "name"], ["event_data", "string-to-json", "categories", 0, "childCategories", 0, "name"]],
-            "status": ["event_data", "string-to-json", "totalTickets"],
+            "status": null,
             "link": ["external_link"]
         }
     },
@@ -66,12 +77,15 @@
         "cookiesRequired": false,
         "cookies": null,
         "getLinks": ["class", "event-card"],
+        "date-format": null,
+        "time-format": null,
         "htmlTags": {
             "artist": ["class", "h2 hero-content__heading hero-content__heading-image"],
             "time": ["class", "booking-button__time text text--small"],
             "date": ["class", "booking-button__date text text--small"],
             "price": ["class", "booking-button__price text text--small text--semi-bold"],
-            "link": ["class", "booking-button"]
+            "genres": null,
+            "status": null
             }
     },
     {
@@ -81,7 +95,7 @@
         "events-url": "https://www.southbankcentre.co.uk/whats-on?type=gigs",
         "api-url": "https://www.southbankcentre.co.uk/api/function/whatsOnList",
         "dynamic": false,
-        "relative": false,
+        "relative": true,
         "type": "api",
         "method": "POST",
         "body-type": "JSON",
@@ -101,11 +115,14 @@
         "condition": true,
         "event-type": [["_source", "arrangementCMS", "primaryArtform"], "Gigs"], 
         "event-list": ["hits", "hits"],
+        "date-format": "%Y-%m-%dT%H:%M:%SZ",
         "data": {
             "artist": ["_source", "arrangementCMS", "title"],
-            "date": ["_source", "eventCMS", "startTime"],
+            "datetime": ["_source", "eventCMS", "startTime"],
             "price": ["_source", "performanceCMS", "basePriceByZone"],
-            "status": ["_source", "arrangementCMS", "ticketed"]
+            "genres": null,
+            "status": ["_source", "arrangementCMS", "ticketed"],
+            "link": ["_source", "drupalCMS", "attributes", "path", "alias"]
         }
     }
 ]
